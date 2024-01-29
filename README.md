@@ -21,10 +21,12 @@ The JPACRUDProject aims to achieve the following learning objectives:
 
 ### Technologies Used
 
-- MySQL database for data manipulation.
-- Java Persistence API (JPA) for mapping entities to SQL tables.
-- Spring MVC for handling web requests and responses.
-- AWS for deploying the application and database.
+- MySQL database (MySQL Workbench)
+- Java Persistence API (JPA) 
+- Spring MVC 
+- AWS 
+- Bootstrap
+- HTML & CSS
 
 ### Database Structure
 
@@ -41,6 +43,8 @@ A Spring project is implemented to allow users to perform basic CRUD operations 
 ### Deployment
 
 The project and the associated database are deployed to an AWS instance.
+
+**http://18.190.80.171:8080/BootMVCUFC/**
 
 ## Lessons Learned
 
@@ -64,14 +68,8 @@ The transition from a menu-driven command-line interface (as in the FilmQueryPro
 
 Handling exceptions in a web context presented unique challenges. Identifying the appropriate exceptions to throw, where to throw them, and how to handle them became crucial for providing a user-friendly experience.
 
-## Project Structure
-
-- The project follows a standard Gradle directory structure.
-- The main application logic is organized into service classes, DAOs, and controllers.
-- JSP files are used for presenting views to the user.
-
 ## How to Run
-
+(if not currently deployed to AWS)
 1. Clone the repository: `git clone https://github.com/walkerjohnelle/JPACRUDProject.git`
 2. Navigate to the project directory: `cd JPACRUDProject`
 3. Build the project: `mvn clean install`

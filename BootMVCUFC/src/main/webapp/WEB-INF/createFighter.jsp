@@ -14,10 +14,11 @@
         body {
             background-image: url('https://images4.alphacoders.com/132/1320808.jpeg'); 
             background-size: cover;
+            background-repeat: no-repeat;
             color: #fff; 
         }
 
-        .container {
+         .container {
             margin-top: 35px;
         }
 
@@ -33,6 +34,11 @@
 
         .breadcrumb {
             background-color: transparent;
+            position: fixed;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 10px;
         }
 
         .breadcrumb-item a:hover {
@@ -60,22 +66,22 @@
         <form action="createFighter.do" method="POST" name="UfcFighters" class="mb-5">
            <div class="mb-3">
                 <label for="firstName" class="form-label">Fighter First Name:</label>
-                <input type="text" name="firstName" class="form-control" value="${fighter.firstName }"required />
+                <input type="text" id="firstName" name="firstName" class="form-control" value="${fighter.firstName }"required />
             </div>
 
             <div class="mb-3">
                 <label for="lastName" class="form-label">Fighter Last Name:</label>
-                <input type="text" name="lastName" class="form-control" value = "${fighter.lastName }"required />
+                <input type="text" id="lastName" name="lastName" class="form-control" value = "${fighter.lastName }"required />
             </div>
 
             <div class="mb-3">
                 <label for="age" class="form-label">Fighter Age:</label>
-                <input type="number" name="age" class="form-control" value ="${fighter.age }"required min="0" />
+                <input type="number" id="age" name="age" class="form-control" value ="${fighter.age }"required min="0" />
             </div>
 
             <div class="mb-3">
                 <label for="weightclass" class="form-label">Fighter Weightclass:</label>
-                <select name="weightclass" class="form-select" value ="${fighter.weightclass }"required>
+                <select id="weightclass" name="weightclass" class="form-select" value ="${fighter.weightclass }"required>
                     <option value="Flyweight">Flyweight</option>
                     <option value="Bantamweight">Bantamweight</option>
                     <option value="Featherweight">Featherweight</option>
@@ -89,38 +95,38 @@
 
             <div class="mb-3">
                 <label for="nationality" class="form-label">Fighter Nationality:</label>
-                <input type="text" name="nationality" class="form-control" value ="${fighter.nationality }"required />
+                <input type="text" id="nationality" name="nationality" class="form-control" value ="${fighter.nationality }"required />
             </div>
 
             <div class="mb-3">
                 <label for="fightingStyle" class="form-label">Fighter Fighting Style:</label>
-                <input type="text" name="fightingStyle" class="form-control" value ="${fighter.fightingStyle }"required />
+                <input type="text" id="fightingStyle" name="fightingStyle" class="form-control" value ="${fighter.fightingStyle }"required />
             </div>
 
             <div class="mb-3">
-                <label>Fighter Record:</label>
-                Wins: <input type="number" name="wins" value ="${fighter.wins }style="width: 50px;" min="0" />
-                Losses: <input type="number" name="losses" value ="${fighter.losses }style="width: 50px;" min="0" />
-                Draws: <input type="number" name="draws" value ="${fighter.draws }style="width: 50px;" min="0" />
-            </div>
+			    <label>Fighter Record:</label>
+			    Wins: <input type="number" id="wins" name="wins" value="${fighter.wins }" style="width: 50px;" min="0" />
+			    Losses: <input type="number" id="losses" name="losses" value="${fighter.losses }" style="width: 50px;" min="0" />
+			    Draws: <input type="number" id="draws" name="draws" value="${fighter.draws }" style="width: 50px;" min="0" />
+			</div>
 
-            <div class="mb-3">
-                <label>Fighter Wins By:</label>
-                Knockouts: <input type="number" name="knockouts" value ="${fighter.knockouts }"style="width: 50px;"min="0" />
-                Submissions: <input type="number" name="submissions" value ="${fighter.submissions }"style="width: 50px;"min="0" />
-                Decisions: <input type="number" name="decisions" value ="${fighter.decisions }"style="width: 50px;"min="0" />
-            </div>
-
+           <div class="mb-3">
+			    <label>Fighter Wins By:</label>
+			    Knockouts: <input type="number" id="knockouts" name="knockouts" value="${fighter.knockouts }" style="width: 50px;" min="0" />
+			    Submissions: <input type="number" id="submissions" name="submissions" value="${fighter.submissions }" style="width: 50px;" min="0" />
+			    Decisions: <input type="number" id="decisions" name="decisions" value="${fighter.decisions }" style="width: 50px;" min="0" />
+			</div>
+			
 			<div class="mb-3">
 			    Current Champion:
-			    <label><input type="radio" name="champion" value="true" ${fighter.champion ? 'checked' : ''} /> Yes</label>
-			    <label><input type="radio" name="champion" value="false" ${!fighter.champion ? 'checked' : ''} /> No</label>
+			    <label><input type="radio" id="champion" name="champion" value="true" ${fighter.champion ? 'checked' : ''} /> Yes</label>
+			    <label><input type="radio" id=champion name="champion" value="false" ${!fighter.champion ? 'checked' : ''} /> No</label>
 			</div>
 
            <div class="mb-3">
 			    Active:
-			    <label><input type="radio" name="active" value="true" ${fighter.active ? 'checked' : ''} /> Yes</label>
-			    <label><input type="radio" name="active" value="false" ${!fighter.active ? 'checked' : ''} /> No</label>
+			    <label><input type="radio" id="active"  name="active" value="true" ${fighter.active ? 'checked' : ''} /> Yes</label>
+			    <label><input type="radio" id="active" name="active" value="false" ${!fighter.active ? 'checked' : ''} /> No</label>
 			</div>
 
             <button type="submit" class="btn btn-primary">Create New Fighter</button>
@@ -135,15 +141,14 @@
 			<div class="alert alert-danger" role="alert">${error}</div>
 		</c:if>
 	</div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<nav aria-label="breadcrumb">
+<nav aria-label="breadcrumb" class="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/">Home</a></li>
+            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/" style="color: white">Home</a></li>
         </ol>
     </nav>
         <script

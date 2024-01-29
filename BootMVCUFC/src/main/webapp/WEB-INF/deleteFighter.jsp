@@ -14,7 +14,9 @@
         body {
             background-image: url('https://images4.alphacoders.com/132/1320808.jpeg'); 
             background-size: cover;
-            color: #fff; /* Adjust the text color as needed */
+            color: #fff; 
+            background-repeat: no-repeat;
+            
         }
 
         .container {
@@ -33,6 +35,11 @@
 
         .breadcrumb {
             background-color: transparent;
+            position: fixed;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 10px;
         }
 
         .breadcrumb-item a:hover {

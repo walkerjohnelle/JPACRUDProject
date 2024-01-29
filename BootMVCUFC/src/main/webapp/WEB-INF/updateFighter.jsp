@@ -11,14 +11,16 @@
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
 	integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
 	crossorigin="anonymous">
-	<style>
-        body {
-            background-image: url('https://images4.alphacoders.com/132/1320808.jpeg'); 
-            background-size: cover;
-            color: #fff; 
-        }
+<style>
+body {
+	background-image:
+		url('https://images4.alphacoders.com/132/1320808.jpeg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: #fff;
+}
 
-        .container {
+.container {
             margin-top: 35px;
         }
 
@@ -34,6 +36,11 @@
 
         .breadcrumb {
             background-color: transparent;
+            position: fixed;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 10px;
         }
 
         .breadcrumb-item a:hover {
@@ -56,11 +63,12 @@
 	<div class="container mt-5">
 		<h1>Update Fighter Details</h1>
 
-	<form action="updateFighter.do" method="POST" name="UfcFighters" class="mb-5">
+		<form action="updateFighter.do" method="POST" name="UfcFighters"
+			class="mb-5">
 
 			<div class="mb-3">
 				<label for="id" class="form-label">Fighter ID:</label> <input
-					type="number" name="id" class="form-control" 
+					type="number" name="id" class="form-control"
 					placeholder="${fighter.id }" required>
 			</div>
 
@@ -111,20 +119,19 @@
 
 			<div class="mb-3">
 				<label>Fighter Record:</label> Wins: <input type="number"
-					name="wins" value="${fighter.wins }style=" width: 50px;" min="0" />
-				Losses: <input type="number" name="losses"
-					value="${fighter.losses }style=" width: 50px;" min="0" /> Draws: <input
-					type="number" name="draws" value="${fighter.draws }style="
-					width: 50px;" min="0" />
+					name="wins" value="${fighter.wins}" style="width: 50px;" min="0" />
+				Losses: <input type="number" name="losses" value="${fighter.losses}"
+					style="width: 50px;" min="0" /> Draws: <input type="number"
+					name="draws" value="${fighter.draws}" style="width: 50px;" min="0" />
 			</div>
 
 			<div class="mb-3">
 				<label>Fighter Wins By:</label> Knockouts: <input type="number"
-					name="knockouts" value="${fighter.knockouts }" style="width: 50px;"
+					name="knockouts" value="${fighter.knockouts}" style="width: 50px;"
 					min="0" /> Submissions: <input type="number" name="submissions"
-					value="${fighter.submissions }" style="width: 50px;" min="0" />
+					value="${fighter.submissions}" style="width: 50px;" min="0" />
 				Decisions: <input type="number" name="decisions"
-					value="${fighter.decisions }" style="width: 50px;" min="0" />
+					value="${fighter.decisions}" style="width: 50px;" min="0" />
 			</div>
 
 			<div class="mb-3">
@@ -143,14 +150,17 @@
 
 			<button type="submit" class="btn btn-primary">Update Fighter
 				Details</button>
+			<a
+				href="${pageContext.request.contextPath}/deleteFighter.do?id=${fighter.id}">Delete
+				Fighter</a>
+
 		</form>
-<a href="${pageContext.request.contextPath}/deleteFighter.do?id=${fighter.id}">Delete Fighter</a>
 
 		<c:if test="${not empty message or not empty error}">
-    <div class="alert ${not empty message ? 'alert-success' : 'alert-danger'}" role="alert">
-        ${not empty message ? message : error}
-    </div>
-</c:if>
+			<div
+				class="alert ${not empty message ? 'alert-success' : 'alert-danger'}"
+				role="alert">${not empty message ? message : error}</div>
+		</c:if>
 
 	</div>
 
@@ -166,7 +176,7 @@
 			<li class="breadcrumb-item"><a
 				href="${pageContext.request.contextPath}/createFighter.do">Create
 					Fighter</a></li>
-					</ol>
-					</nav>
+		</ol>
+	</nav>
 </body>
 </html>
