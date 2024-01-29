@@ -1,6 +1,6 @@
 # JPACRUDProject
 
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsVe22Pxso6cbfKgZ5uKImewU8uJhgPiI1kA&usqp=CAU" alt="UFC Film" width="400">
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsVe22Pxso6cbfKgZ5uKImewU8uJhgPiI1kA&usqp=CAU" alt="UFC Film" width="550">
 
 
 ## Overview
