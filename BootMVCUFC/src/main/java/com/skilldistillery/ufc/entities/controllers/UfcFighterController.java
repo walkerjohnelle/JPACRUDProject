@@ -53,10 +53,8 @@ public class UfcFighterController {
 		UfcFighters newFighter = fighterDAO.createFighter(fighter);
 
 		if (newFighter != null) {
-			// Redirect to the details page for the newly created fighter
 			return "redirect:getFighter.do?id=" + newFighter.getId();
 		} else {
-			// Add an error message to be displayed on the form page
 			redir.addFlashAttribute("error", "Failed to create a new fighter. Please try again.");
 			return "redirect:createFighter.do";
 		}
@@ -77,10 +75,8 @@ public class UfcFighterController {
 		UfcFighters fighter = fighterDAO.updateFighter(updatedFighter.getId(), updatedFighter);
 
 		if (fighter != null) {
-			// Redirect to the details page for the updated fighter
 			return "redirect:getFighter.do?id=" + fighter.getId();
 		} else {
-			// Add an error message to be displayed on the form page
 			redir.addFlashAttribute("error", "Failed to update the fighter. Please try again.");
 			return "redirect:updateFighter.do?id=" + updatedFighter.getId();
 		}
@@ -101,12 +97,10 @@ public class UfcFighterController {
 
 	    if (isDeleted) {
 	        System.out.println("Fighter deleted successfully.");
-	        // Redirect to the message display page with a success message
 	        redir.addFlashAttribute("message", "Fighter deleted successfully.");
 	        return "redirect:/displayMessage?isDeleted=" + isDeleted;
 	    } else {
 	        System.out.println("Failed to delete fighter.");
-	        // Redirect to the message display page with an error message
 	        redir.addFlashAttribute("error", "Failed to delete fighter. Please try again.");
 	        return "redirect:/displayMessage?isDeleted=" + (!isDeleted);
 	    }
