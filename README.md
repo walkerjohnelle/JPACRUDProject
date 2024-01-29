@@ -21,10 +21,12 @@ The JPACRUDProject aims to achieve the following learning objectives:
 
 ### Technologies Used
 
-- MySQL database for data manipulation.
-- Java Persistence API (JPA) for mapping entities to SQL tables.
-- Spring MVC for handling web requests and responses.
-- AWS for deploying the application and database.
+- MySQL database (MySQL Workbench)
+- Java Persistence API (JPA) 
+- Spring MVC 
+- AWS 
+- Bootstrap
+- HTML & CSS
 
 ### Database Structure
 
