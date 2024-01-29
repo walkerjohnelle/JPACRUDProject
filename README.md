@@ -42,6 +42,8 @@ A Spring project is implemented to allow users to perform basic CRUD operations 
 
 The project and the associated database are deployed to an AWS instance.
 
+**http://18.190.80.171:8080/BootMVCUFC/**
+
 ## Lessons Learned
 
 ### Passion-Driven Development
