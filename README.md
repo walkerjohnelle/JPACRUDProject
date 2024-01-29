@@ -66,7 +66,7 @@ Handling exceptions in a web context presented unique challenges. Identifying th
 
 ## Project Structure
 
-- The project follows a standard Maven directory structure.
+- The project follows a standard Gradle directory structure.
 - The main application logic is organized into service classes, DAOs, and controllers.
 - JSP files are used for presenting views to the user.
 
