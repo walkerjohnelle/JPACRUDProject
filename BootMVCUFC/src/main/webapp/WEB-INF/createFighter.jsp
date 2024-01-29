@@ -18,7 +18,7 @@
     <div class="container mt-5">
         <h1>Add New Fighter to Rankings</h1>
 
-        <form action="createFighter.do" method="POST" name="UfcFighters">
+        <form action="createFighter.do" method="POST" name="UfcFighters" class="mb-5">
            <div class="mb-3">
                 <label for="firstName" class="form-label">Fighter First Name:</label>
                 <input type="text" name="firstName" class="form-control" value="${fighter.firstName }"required />
@@ -84,14 +84,29 @@
 			    <label><input type="radio" name="active" value="false" ${!fighter.active ? 'checked' : ''} /> No</label>
 			</div>
 
-            <button type="submit" class="btn btn-primary">Create Fighter</button>
+            <button type="submit" class="btn btn-primary">Create New Fighter Ranking</button>
         </form>
+        
+        
+		<c:if test="${not empty message}">
+			<div class="alert alert-success" role="alert">${message}</div>
+		</c:if>
+
+		<c:if test="${not empty error}">
+			<div class="alert alert-danger" role="alert">${error}</div>
+		</c:if>
+	</div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
+<nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/">Home</a></li>
+            <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/getAllFighters">Show All Fighters</a></li>
+        </ol>
+    </nav>
 </body>
 </html>

@@ -18,48 +18,47 @@ import com.skilldistillery.ufc.entities.data.UfcFighterDAO;
 
 @Controller
 public class UfcFighterController {
-	@Autowired
-	private UfcFighterDAO fighterDAO;
 
-	@RequestMapping(path = { "", "/", "home.do" })
-	public String index() {
+    @Autowired
+    private UfcFighterDAO fighterDAO;
 
-		return "home";
-	}
+    @RequestMapping(path = { "", "/", "home.do" })
+    public String index() {
+        return "home";
+    }
 
-	@GetMapping(path = "getFighter.do", params = "id")
-	public String getFighterById(@RequestParam("id") int id, Model model) {
-		String viewName = "show";
-		UfcFighters fighter = fighterDAO.findById(id);
-		model.addAttribute("fighter", fighter);
-		return viewName;
-	}
+    @GetMapping(path = "getFighter.do", params = "id")
+    public String getFighterById(@RequestParam("id") int id, Model model) {
+        String viewName = "show";
+        UfcFighters fighter = fighterDAO.findById(id);
+        model.addAttribute("fighter", fighter);
+        return viewName;
+    }
 
-	@RequestMapping(path = "/", method = RequestMethod.GET)
-	public String getAllFighters(Model model) {
-		List<UfcFighters> fighters = fighterDAO.findAll();
-		model.addAttribute("fighters", fighters);
-		return "home";
-	}
+    @RequestMapping(path = "/", method = RequestMethod.GET)
+    public String getAllFighters(Model model) {
+        List<UfcFighters> fighters = fighterDAO.findAll();
+        model.addAttribute("fighters", fighters);
+        return "home";
+    }
 
-	@PostMapping(path = "createFighterForm.do")
-	public String createFighterForm(@ModelAttribute("fighter") UfcFighters fighter, RedirectAttributes redir) {
-	    UfcFighters newFighter = fighterDAO.createFighter(fighter);
+    @GetMapping("createFighter.do")
+    public String createFighterForm(Model model) {
+        model.addAttribute("fighter", new UfcFighters());
+        return "createFighter";
+    }
 
-	    if (newFighter != null) {
-	        // Redirect to the details page for the newly created fighter
-	        return "redirect:getFighter.do?id=" + newFighter.getId();
-	    } else {
-	        // Add an error message to be displayed on the form page
-	        redir.addFlashAttribute("error", "Failed to create a new fighter. Please try again.");
-	        return "redirect:createFighter.do";
-	    }
-	}
+    @PostMapping("createFighter.do")
+    public String processCreateFighterForm(@ModelAttribute("fighter") UfcFighters fighter, RedirectAttributes redir) {
+        UfcFighters newFighter = fighterDAO.createFighter(fighter);
 
-
-	@RequestMapping(path = "createFighter.do")
-	public String createFighter(Model model) {
-		model.addAttribute("fighter", new UfcFighters());
-		return "createFighter";
-	}
+        if (newFighter != null) {
+            // Redirect to the details page for the newly created fighter
+            return "redirect:getFighter.do?id=" + newFighter.getId();
+        } else {
+            // Add an error message to be displayed on the form page
+            redir.addFlashAttribute("error", "Failed to create a new fighter. Please try again.");
+            return "redirect:createFighter.do";
+        }
+    }
 }
