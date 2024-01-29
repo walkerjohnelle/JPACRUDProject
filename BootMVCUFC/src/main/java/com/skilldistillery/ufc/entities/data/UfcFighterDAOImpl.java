@@ -34,14 +34,45 @@ public class UfcFighterDAOImpl implements UfcFighterDAO {
 
 	@Override
 	public UfcFighters createFighter(UfcFighters fighter) {
-		try {
 
-			em.persist(fighter);
+		em.persist(fighter);
 
-			return fighter;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null; 
-		}
+		return fighter;
 	}
+
+	@Override
+	public UfcFighters updateFighter(int id, UfcFighters updatedFighter) {
+		if (updatedFighter == null) {
+			return null;
+		}
+
+		UfcFighters managed = em.find(UfcFighters.class, id);
+
+		managed.setFirstName(updatedFighter.getFirstName());
+		managed.setLastName(updatedFighter.getLastName());
+		managed.setAge(updatedFighter.getAge());
+		managed.setWeightclass(updatedFighter.getWeightclass());
+		managed.setNationality(updatedFighter.getNationality());
+		managed.setFightingStyle(updatedFighter.getFightingStyle());
+		managed.setWins(updatedFighter.getWins());
+		managed.setLosses(updatedFighter.getLosses());
+		managed.setDraws(updatedFighter.getDraws());
+		managed.setKnockouts(updatedFighter.getKnockouts());
+		managed.setSubmissions(updatedFighter.getSubmissions());
+		managed.setDecisions(updatedFighter.getDecisions());
+		managed.setChampion(updatedFighter.getChampion());
+		managed.setActive(updatedFighter.getActive());
+
+		return updatedFighter;
+	}
+
+	@Override
+	public boolean deleteFighter(int id) {
+		UfcFighters managed = em.find(UfcFighters.class, id);
+
+		em.remove(managed);
+
+		return true;
+	}
+
 }

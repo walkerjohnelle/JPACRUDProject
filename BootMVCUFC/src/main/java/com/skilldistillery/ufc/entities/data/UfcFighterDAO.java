@@ -11,5 +11,7 @@ public interface UfcFighterDAO {
 	
 	UfcFighters createFighter(UfcFighters fighter);
 	
+	UfcFighters updateFighter (int id, UfcFighters fighter);
 	
+	boolean deleteFighter(int id);
 }

@@ -141,20 +141,20 @@ public class UfcFighters {
 		this.fightingStyle = fightingStyle;
 	}
 
-	public boolean isChampion() {
+	public boolean getChampion() {
 		return champion;
 	}
 
-	public void setChampion(boolean isChampion) {
-		this.champion = isChampion;
+	public void setChampion(boolean champion) {
+		this.champion = champion;
 	}
 
-	public boolean isActive() {
+	public boolean getActive() {
 		return active;
 	}
 
-	public void setActive(boolean isActive) {
-		this.active = isActive;
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 
 	@Override

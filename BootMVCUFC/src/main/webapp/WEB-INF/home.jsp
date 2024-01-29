@@ -29,10 +29,13 @@
 
 	<ul class="fighter-list">
 		<c:forEach var="fighter" items="${fighters}">
-			<li><a href="getFighter.do?id=${fighter.id}">${fighter.firstName} ${fighter.lastName }</a></li>
+			<li><a href="getFighter.do?id=${fighter.id}">${fighter.firstName}
+					${fighter.lastName }</a></li>
 		</c:forEach>
 	</ul>
+	<br>
 	<a href="createFighter.do">Create a New Fighter</a>
+
 
 	<script>
 		function toggleFighterList() {
